@@ -5,25 +5,30 @@ export default function TextForm(props) {
 
   const handleUpClick = () => {
     setText(text.toUpperCase());
+    props.showAlert("Converted to UpperCase!", "success");
   };
 
   const handleLowClick = () => {
     setText(text.toLowerCase());
+    props.showAlert("Converted to LowerCase!", "success");
   };
 
   const handleClearClick = () => {
     setText("");
+    props.showAlert("Text Cleared!", "success");
   };
 
   const handleCopy = () => {
     var text = document.getElementById("textBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text copied to clipboard!", "success");
   };
 
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Extra spaces removed", "success");
   };
 
   return (
@@ -90,7 +95,7 @@ export default function TextForm(props) {
         <p>{0.008 * text.split(" ").length} minutes will be required to read</p>
         {/* Time to calculate one word */}
         <h5>Preview:</h5>
-        <p>{text.length>0 ? text : 'Enter something to Preview it here'}</p>
+        <p>{text.length > 0 ? text : "Enter something to Preview it here"}</p>
       </div>
     </>
   );
