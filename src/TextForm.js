@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function TextForm() {
+export default function TextForm(props) {
   const [text, setText] = useState("");
 
   const handleUpClick = () => {
@@ -28,18 +28,27 @@ export default function TextForm() {
 
   return (
     <>
-      <div className="container my-4">
+      <div
+        className={`container my-4 text-${
+          props.mode === "light" ? "dark" : "light"
+        }`}
+      >
         <h2>
           <label for="exampleFormControlTextarea1" className="form-label">
             Enter the Text below
           </label>
         </h2>
         <textarea
-          className="form-control my-2"
+          className={`form-control my-2 text-${
+            props.mode === "light" ? "dark" : "light"
+          }`}
           id="textBox"
           rows="8"
           value={text}
           onChange={(e) => setText(e.target.value)}
+          style={{
+            backgroundColor: props.mode === "dark" ? "#101317" : "white",
+          }}
         ></textarea>
         <button
           className="btn btn-primary mx-1"
@@ -69,7 +78,11 @@ export default function TextForm() {
           Remove Extra Spaces
         </button>
       </div>
-      <div className="container my-1">
+      <div
+        className={`container my-1 text-${
+          props.mode === "light" ? "dark" : "light"
+        }`}
+      >
         <h3>Text Summary:</h3>
         <p>
           {text.split(" ").length} words and {text.length} characters
@@ -77,7 +90,7 @@ export default function TextForm() {
         <p>{0.008 * text.split(" ").length} minutes will be required to read</p>
         {/* Time to calculate one word */}
         <h5>Preview:</h5>
-        <p>{text}</p>
+        <p>{text.length>0 ? text : 'Enter something to Preview it here'}</p>
       </div>
     </>
   );
