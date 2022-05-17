@@ -15,38 +15,61 @@ export default function TextForm() {
     setText("");
   };
 
+  const handleCopy = () => {
+    var text = document.getElementById("textBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
+
   return (
     <>
       <div className="container my-4">
         <h2>
-          <label for="exampleFormControlTextarea1" class="form-label">
+          <label for="exampleFormControlTextarea1" className="form-label">
             Enter the Text below
           </label>
         </h2>
         <textarea
           className="form-control my-2"
-          id="exampleFormControlTextarea1"
+          id="textBox"
           rows="8"
           value={text}
           onChange={(e) => setText(e.target.value)}
         ></textarea>
-        <button className="btn btn-primary" onClick={() => handleUpClick()}>
+        <button
+          className="btn btn-primary mx-1"
+          onClick={() => handleUpClick()}
+        >
           Convert to Uppercase
         </button>
         <button
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-1"
           onClick={() => handleLowClick()}
         >
           Convert to Lowercase
         </button>
         <button
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-1"
           onClick={() => handleClearClick()}
         >
           Clear Text
         </button>
+        <button className="btn btn-primary mx-1" onClick={() => handleCopy()}>
+          Copy Text
+        </button>
+        <button
+          className="btn btn-primary mx-1"
+          onClick={() => handleExtraSpaces()}
+        >
+          Remove Extra Spaces
+        </button>
       </div>
-      <div className="container my-2">
+      <div className="container my-1">
         <h3>Text Summary:</h3>
         <p>
           {text.split(" ").length} words and {text.length} characters

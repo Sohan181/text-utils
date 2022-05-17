@@ -12,7 +12,6 @@ export default function About() {
       setMyStyle({
         color: "white",
         backgroundColor: "black",
-        border: "0.1px solid white",
       });
       setBtnText("Enable Light Mode");
     } else {
@@ -26,7 +25,7 @@ export default function About() {
   return (
     <>
       <div className="container">
-        <h1 className="mt-4" style={myStyle}>
+        <h1 className="mt-4 mb-0" style={myStyle}>
           About Us
         </h1>
         <div className="accordion" id="accordionExample" style={myStyle}>

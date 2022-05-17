@@ -1,19 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Navbar from './Navbar';
-// import TextForm from "./TextForm";
-import reportWebVitals from './reportWebVitals';
-import About from './About';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-    <Navbar title="Text Utils" />
-    {/* <TextForm></TextForm> */}
-    <About/>
+    
   </React.StrictMode>
 );
 

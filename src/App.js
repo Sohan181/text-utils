@@ -1,11 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./Navbar";
+import TextForm from "./TextForm";
+// import About from "./About";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <Navbar title="Text Utils" />
+      <TextForm></TextForm>
+      {/* <About/> */}
+    </>
   );
 }
 
